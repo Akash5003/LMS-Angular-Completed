@@ -1,0 +1,72 @@
+
+<body>
+  <header>
+    <img src="/assets/10decoders.png" alt="Company Logo" class="logo">
+    <nav class="navigation">
+        <a href="http://localhost:4200">Home</a>
+        <a href="http://localhost:4200/about">About</a>
+        <a href="http://localhost:4200/contact">contact</a>
+        <button routerLink="/login" class="btnLogin-popup">Login</button>
+    </nav>
+</header>
+
+  
+  <div class="wrapper">
+  <div class="form-box">
+    <h2>New Registration</h2>
+    <form (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm" novalidate>
+
+      <!-- for Username -->
+      <div class="input-box">
+        <input type="text" id="username" name="username" [(ngModel)]="registerData.userName" #username="ngModel"  [ngClass]="{'is-invalid': registerForm.submitted && username.invalid}" required>
+        <label>Username</label>
+        <div class="invalid-feedback">
+          <div *ngIf="username.errors?.['required']">Username is required</div>
+        </div>
+      </div>
+
+      <!-- for Name -->
+      <div class="input-box"> 
+      <input type="text" id="name" name="name" [(ngModel)]="registerData.name" #name="ngModel" [ngClass]="{'is-invalid': registerForm.submitted && name.invalid}" required>
+      <label class="name">Name</label>
+      <div class="invalid-feedback">
+          <div *ngIf="name.errors?.['required']">Name is required</div>
+        </div>
+      </div>
+
+      <!-- for Password -->
+      <div class="input-box">
+        <input type="password" id="password" name="password" [(ngModel)]="registerData.password" #password="ngModel" [ngClass]="{'is-invalid': registerForm.submitted && password.invalid}" required minlength="4">
+        <label>Password</label>
+        <div class="invalid-feedback">
+          <div *ngIf="password.errors?.['required']">Password is required</div>
+          <div *ngIf="password.errors?.['minlength']">Password must be at least 4 characters</div>
+        </div>
+      </div>
+
+      <!-- for Confirm Password -->
+      <div class="input-box">
+        <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" #confirmPasswordField="ngModel"  [ngClass]="{'is-invalid': registerForm.submitted && confirmPasswordField.invalid || passwordMismatch}" required>
+        <label class="cp">Confirm Password</label>
+        <div class="invalid-feedback">
+          <div *ngIf="confirmPasswordField.errors?.['required']">Confirm Password is required</div>
+          <div *ngIf="passwordMismatch">Passwords do not match</div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn">Register</button>
+      <div class="login-register">
+      <p >
+        Already have an account? <a href="http://localhost:4200/login">Login here</a>
+      </p>
+    </div>
+
+      <!-- Success and Error Messages -->
+      <div *ngIf="registrationSuccess" class="text-success">{{ registrationSuccess }}</div>
+      <div *ngIf="registrationError" class="invalid-feedback">{{ registrationError }}</div>
+    </form>
+  </div>
+</div>
+
+</body>

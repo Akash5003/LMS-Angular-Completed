@@ -1,0 +1,80 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <header>
+    <img src="/assets/10decoders.png" alt="Company Logo" class="logo">
+    <nav class="navigation">
+      <a href="http://localhost:4200">Home</a>
+      <a href="http://localhost:4200/about">About</a>
+      <a href="http://localhost:4200/contact">Contact</a>
+      <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</button>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mt-5">
+          <div class="card-header text-center">
+            <h3>Available Books</h3>
+          </div>
+          <div class="card-background"></div>
+          <div class="card-body">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No</th>
+                  <th>Book Id</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Language</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let book of books; let i = index">
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ book.id }}</td>
+                  <td>{{ book.bookTitle }}</td>
+                  <td>{{ book.authorName }}</td>
+                  <td>{{ book.language }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="download">
+    <h2 style="color:beige">Get Book by ID here</h2>
+    <div>
+      <input type="number" class="form-control" [(ngModel)]="bookIdToGet" placeholder="Enter Book ID to Download Book" /><br>
+      <button class="btn btn-primary" (click)="getBookById()">Download Book</button>
+    </div>
+  </div>
+  <!-- Bootstrap Modal for Logout Confirmation -->
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logoutModalLabel">Confirm Logout</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to log out? 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <a href="http://localhost:4200/login" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+

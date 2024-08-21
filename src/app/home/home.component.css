@@ -1,0 +1,182 @@
+/* Global styles for the card */
+.card {
+    position: relative; /* Position relative for absolute positioning of background */
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Slightly visible border */
+    border-radius: 15px; /* Rounded corners */
+    backdrop-filter: blur(10px); /* Blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    color: #f0f0f0; /* Light text color for contrast */
+    overflow: hidden; /* Hide overflowing content */
+  }
+  
+  /* New background layer styling */
+  .card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent(20px); /* Dark semi-transparent background */
+    z-index: -1; /* Behind the card content */
+    border-radius: 15px; /* Match card’s border radius */
+  }
+  
+  /* Header styles */
+  .card-header {
+    background: rgba(0, 0, 0, 0.5); /* Darker background for the header */
+    padding: 15px; /* Add padding for spacing */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Border for separation */
+  }
+  
+  /* Body styles */
+  .card-body {
+    background: rgba(0, 0, 0, 0.3); /* Slightly darker background for body */
+    padding: 20px; /* Add padding for spacing */
+    position: relative; /* Ensure it is above the background layer */
+    align-items: center;
+  }
+  
+  body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #36096d;
+    /* background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%); */
+    background-image: url('/assets/bgimage.jpg');
+    /* Background image */
+    background-size: cover;
+    /* Cover the entire viewport */
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+}
+
+.card-body p{
+
+  text-align: center;
+  margin-right: 20;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 45px;
+ 
+
+}
+
+header {
+
+  position: fixed;
+
+ 
+  top: 0;
+
+  left: 0;
+  
+  width: 100%;
+  
+  padding: 0px 100px;
+  
+  /* background: red; */
+  
+  display: flex;
+  
+  justify-content: space-between;
+  
+  align-items: center;
+  
+  z-index: 99;
+
+ 
+}
+
+header .logo {
+  height: 120px;
+  width: auto ;
+
+}
+
+.navigation a {
+
+  position: relative;
+  
+  font-size: 1.1em; 
+  
+  color: whitesmoke;
+  
+  text-decoration: none;
+  
+  font-weight: 500;
+  
+  margin-left: 40px;
+  opacity: .7;
+}
+
+.navigation a::after {
+
+  content: '';
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -6px;
+
+  width: 100%;
+
+  height: 3px;
+
+  background: #fff;
+
+  border-radius: 5px;
+
+  /* transform-origin: right; */
+
+  transform: scalex(0);
+
+  transition: transform.5s;
+
+}
+
+
+
+navigation a:hover::after {
+
+
+  transform: scaleX(1);
+
+}
+
+.navigation .btnLogin-popup {
+
+  width: 130px;
+  
+  height: 50px;
+  
+  background: transparent;
+  
+  border: 2px solid #fff;
+  
+  outline: none;
+  
+  border-radius: 6px;
+  
+  cursor: pointer;
+  
+  font-size: 1.1em;
+  
+  color: #fff;
+  
+  font-weight: 500;
+  
+  margin-left: 40px;
+  
+  transition: .5s;
+  
+  }
+  
+.navigation .btnLogin-popup:hover{
+
+  background: #fff;
+  color: #162938;
+}
